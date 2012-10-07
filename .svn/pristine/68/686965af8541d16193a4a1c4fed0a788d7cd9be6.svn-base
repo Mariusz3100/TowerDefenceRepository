@@ -1,0 +1,46 @@
+using System;
+using UnityEngine;
+
+
+	public class Player:MGameObject
+	{
+		
+		private static Player singleton;
+		
+		public static Player getPlayer(){
+		if(singleton==null)
+				singleton=new Player();
+			return singleton;
+		
+		}
+		
+	public int speed=5;
+		
+		
+		
+	
+	public void Update(){
+		
+		
+		if(this.transform.position.z>GameScene.gameScene.x&&this.transform.position.z<GameScene.gameScene.xMax){
+
+			this.transform.position.z+=Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;
+
+		}else{
+	//	this.transform.position.z-=Mathf.Sign(this.transform.position.z)/10; //so mage won't get blocked on the edges
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	public Player ()
+		{
+			
+		}
+}
+
